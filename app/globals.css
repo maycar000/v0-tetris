@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Grid pattern for game board */
+.grid-background {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 10% 5%;
+  z-index: 1;
+  image-rendering: pixelated;
+}
+
+/* NES Tetris block styles */
+.tetromino-block {
+  position: relative;
+  image-rendering: pixelated;
+  transform: translateZ(0);
+  box-shadow: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* NES-inspired tetromino textures */
+.tetromino-i {
+  background-color: #00f0f0;
+  border: 2px solid;
+  border-color: #80f8f8 #00a0a0 #00a0a0 #80f8f8;
+  box-shadow: inset 1px 1px 0 #c0fcfc, inset -1px -1px 0 #007878;
+}
+
+.tetromino-j {
+  background-color: #0000f0;
+  border: 2px solid;
+  border-color: #8080f8 #000080 #000080 #8080f8;
+  box-shadow: inset 1px 1px 0 #c0c0fc, inset -1px -1px 0 #000060;
+}
+
+.tetromino-l {
+  background-color: #f0a000;
+  border: 2px solid;
+  border-color: #f8d080 #a06000 #a06000 #f8d080;
+  box-shadow: inset 1px 1px 0 #fce8c0, inset -1px -1px 0 #805000;
+}
+
+.tetromino-o {
+  background-color: #f0f000;
+  border: 2px solid;
+  border-color: #f8f880 #a0a000 #a0a000 #f8f880;
+  box-shadow: inset 1px 1px 0 #fcfcc0, inset -1px -1px 0 #808000;
+}
+
+.tetromino-s {
+  background-color: #00f000;
+  border: 2px solid;
+  border-color: #80f880 #00a000 #00a000 #80f880;
+  box-shadow: inset 1px 1px 0 #c0fcc0, inset -1px -1px 0 #008000;
+}
+
+.tetromino-t {
+  background-color: #a000f0;
+  border: 2px solid;
+  border-color: #d080f8 #6000a0 #6000a0 #d080f8;
+  box-shadow: inset 1px 1px 0 #e8c0fc, inset -1px -1px 0 #400080;
+}
+
+.tetromino-z {
+  background-color: #f00000;
+  border: 2px solid;
+  border-color: #f88080 #a00000 #a00000 #f88080;
+  box-shadow: inset 1px 1px 0 #fcc0c0, inset -1px -1px 0 #800000;
+}
+
+/* Shadow versions */
+.tetromino-i-shadow {
+  background-color: rgba(0, 240, 240, 0.3);
+  border: 1px solid rgba(128, 248, 248, 0.3);
+}
+
+.tetromino-j-shadow {
+  background-color: rgba(0, 0, 240, 0.3);
+  border: 1px solid rgba(128, 128, 248, 0.3);
+}
+
+.tetromino-l-shadow {
+  background-color: rgba(240, 160, 0, 0.3);
+  border: 1px solid rgba(248, 208, 128, 0.3);
+}
+
+.tetromino-o-shadow {
+  background-color: rgba(240, 240, 0, 0.3);
+  border: 1px solid rgba(248, 248, 128, 0.3);
+}
+
+.tetromino-s-shadow {
+  background-color: rgba(0, 240, 0, 0.3);
+  border: 1px solid rgba(128, 248, 128, 0.3);
+}
+
+.tetromino-t-shadow {
+  background-color: rgba(160, 0, 240, 0.3);
+  border: 1px solid rgba(208, 128, 248, 0.3);
+}
+
+.tetromino-z-shadow {
+  background-color: rgba(240, 0, 0, 0.3);
+  border: 1px solid rgba(248, 128, 128, 0.3);
+}
+
+/* Add a pixelated font for the game */
+@font-face {
+  font-family: "Press Start 2P";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/pressstart2p/v15/e3t4euO8T-267oIAQAu6jDQyK3nVivM.woff2) format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.nes-text {
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.nes-title {
+  font-family: "Press Start 2P", cursive;
+}
